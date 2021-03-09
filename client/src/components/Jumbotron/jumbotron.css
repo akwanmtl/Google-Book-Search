@@ -1,0 +1,28 @@
+.img-background{
+  background-image: url('./pexels-mentatdgt-1319854.jpg');
+
+}
+
+.block_article {
+  /* width: 500px; */
+  /* height: 250px; */
+  background-size: cover;
+  line-height: 230px;
+  text-align: center;
+  /* border-radius: 10px; */
+}
+
+.block_article span {
+  color: white;
+  text-shadow: 2px 2px black;
+  font-size: 1.3em;
+}
+
+.banner-text {
+  background-color: rgb(255, 255, 255,0.7);
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.banner-text p {
+  color: #8a4d76;
+}
