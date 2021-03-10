@@ -1,0 +1,13 @@
+.book-card {
+  background-color: aqua;
+  border-radius: 5px;
+}
+
+.testing {
+  background-color: bisque;
+}
+
+.flex-right {
+  display: flex !important;
+  justify-content: flex-end;
+}

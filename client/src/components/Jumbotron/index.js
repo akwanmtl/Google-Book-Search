@@ -3,7 +3,7 @@ import './jumbotron.css';
 
 function Jumbotron () {
   return (
-    <div>
+    <div className="container is-max-desktop">
       <section className="hero is-medium block_article img-background">
       <div className="hero-body">
         <div className="banner-text">

@@ -1,6 +1,6 @@
 .img-background{
-  background-image: url('./pexels-mentatdgt-1319854.jpg');
-
+  background-image: url('./pexels-clem-onojeghuo-185764.jpg');
+  border-radius: 5px;
 }
 
 .block_article {
@@ -19,7 +19,7 @@
 }
 
 .banner-text {
-  background-color: rgb(255, 255, 255,0.7);
+  /* background-color: rgb(255, 255, 255,0.7); */
   margin-left: 20px;
   margin-right: 20px;
 }
