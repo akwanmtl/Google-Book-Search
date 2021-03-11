@@ -5,7 +5,11 @@ module.exports = {
     db.Book
       .find(req.query)
       .sort({ date: -1 })
-      .then(result => res.json(result))
+      .then(result => {
+        console.log('findall')
+        console.log(result)
+        res.json(result)
+      })
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
