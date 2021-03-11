@@ -13,7 +13,10 @@ module.exports = {
   create: function(req, res) {
     db.Book
       .create(req.body)
-      .then(result => res.json(result))
+      .then(result => {
+        req.io.emit("new-book", result)
+        res.json(result)
+      })
       .catch(err => {
         console.log(err)
         res.status(422).json(err)

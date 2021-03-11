@@ -42,11 +42,9 @@ class Search extends Component {
 
   handleClick = (id) => {
     
-    console.log("adding")
     const book = this.state.searchedBooks.filter(book => book.googleID === id);
     API.saveBook(book[0])
       .then(res =>{
-        console.log(res.data)
         this.setState({
           searchedBooks : this.state.searchedBooks.filter(book => book.googleID !== id)
         });

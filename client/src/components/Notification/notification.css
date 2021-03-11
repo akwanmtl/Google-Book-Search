@@ -1,0 +1,22 @@
+.notification-bar {
+  position: fixed;
+  top: 10px;
+  z-index: 999999;
+  width:100%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-bar h2 {
+  background-color: #F8EBC8;
+  padding: 5px;
+  color: #44BBA4;
+}
+
+.hidden-true {
+  visibility: hidden;
+}
+.hidden-false {
+  visibility: visible;
+}

@@ -1,10 +1,12 @@
 import React from 'react';
+import BookContainer from '../components/BookContainer';
+import Message from '../components/Message';
 
 function NoMatch () {
   return (
-    <div className="container is-max-desktop">
-      Error 404 - Page not found
-    </div>
+    <BookContainer>
+          <Message loading={false} message="Error 404 - No page found"/> :
+    </BookContainer>
   )
 }
 
