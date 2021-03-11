@@ -1,17 +1,16 @@
 import React from "react";
 import BookCard from '../BookCard'
 
-function BookList() {
+function BookList({bookList}) {
 
   return (
     <div>
-      <BookCard/>
-      
-      <BookCard/>
-      
-      <BookCard/>
-      
-      <BookCard/>
+      { ( bookList.length!==0 ) ?
+        bookList.map((book,index) => (
+          <BookCard book={book} key={index}/>
+        )) :
+        <div>No books found</div>
+      }
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function Navbar () {
 
@@ -8,27 +9,27 @@ function Navbar () {
     <div>
       <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <a className="navbar-item" href="https://bulma.io">
+          <Link className="navbar-item" to="/">
             Google Books Search
-          </a>
+          </Link>
 
-          <a role="button" className={`navbar-burger burger ${isActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false" data-target="navOptions" onClick={() => {
+          <div role="button" className={`navbar-burger burger ${isActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false" data-target="navOptions" onClick={() => {
             setisActive(!isActive)
           }}>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </a>
+          </div>
         </div>
 
         <div id="navOptions" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
           <div className="navbar-end">
-            <a className="navbar-item" href="https://bulma.io">
+            <Link className="navbar-item" to="/">
               Search
-            </a>
-            <a className="navbar-item" href="https://bulma.io">
+            </Link>
+            <Link className="navbar-item" to="/saved">
               Saved
-            </a>
+            </Link>
           </div>
         </div>
       </nav>

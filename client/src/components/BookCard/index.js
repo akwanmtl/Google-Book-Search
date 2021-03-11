@@ -1,17 +1,17 @@
 import React from "react";
 import './bookcard.css'
 
-function BookCard() {
-
+function BookCard({book}) {
+  console.log(book.image)
   return (
     <div className="container is-max-desktop book-card">
 
-      <div class="columns">
-        <div class="column is-one-fifth testing">book cover goes here</div>
-        <div class="column">
-          <p>This is the book title</p>
-          <p>By Author Name</p>
-          <p>This is the description. </p>
+      <div className="columns">
+        <div className="column is-one-fifth testing"><img src={book.image} alt={book.title}/></div>
+        <div className="column">
+          <p>{book.title}</p>
+          <p>{book.authors}</p>
+          <p>{book.description}</p>
           <div className="flex-right">
             <button className="button is-primary button-test">View</button>
             <button className="button is-link button-test">Save</button>
