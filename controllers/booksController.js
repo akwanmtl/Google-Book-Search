@@ -18,7 +18,7 @@ module.exports = {
           db.Book
           .create(req.body)
           .then(result => {
-            req.io.emit("new-book", result.title + "has been saved!");
+            req.io.emit("new-book", result.title + " has been saved!");
             res.json(result)
           })
         }
