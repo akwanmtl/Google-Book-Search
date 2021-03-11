@@ -29,7 +29,7 @@ function BookCard({book, button, handleClick}) {
               <button 
                 className="button is-link button-test" 
                 onClick={() => handleClick(book.googleID)}>
-                  {button == "Save" ? 
+                  {button === "Save" ? 
                     <FontAwesomeIcon icon={faStar} className="icon"/>:
                     <FontAwesomeIcon icon={faTrash} className="icon"/> 
                   }

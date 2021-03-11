@@ -12,8 +12,22 @@ module.exports = {
   },
   create: function(req, res) {
     db.Book
-      .create(req.body)
-      .then(result => res.json(result))
+      .find({ googleID: req.body.googleID })
+      .then(data =>{
+        if(data.length === 0){
+          db.Book
+          .create(req.body)
+          .then(result => {
+            req.io.emit("new-book", result.title + "has been saved!");
+            res.json(result)
+          })
+        }
+        else{
+          req.io.emit("new-book", req.body.title + " is already saved!");
+          res.json(data)
+        }
+        
+      })
       .catch(err => {
         console.log(err)
         res.status(422).json(err)

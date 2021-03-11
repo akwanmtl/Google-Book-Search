@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import './App.sass';
 
+import Notification from './components/Notification';
 import Navbar from './components/Navbar';
 import Jumbotron from './components/Jumbotron';
 
@@ -18,6 +19,8 @@ class App extends Component {
         <div>
             <Navbar />
             <Jumbotron />
+            
+            <Notification />
             <Switch>
               <Route exact path="/" component={ Search } />
               <Route exact path="/saved" component={ Saved } />
