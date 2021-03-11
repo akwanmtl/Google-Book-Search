@@ -18,6 +18,7 @@ This is an application that allows users to search and save books. It is built u
 
 ## Credits
 
+* [Photo by Clem Onojeghuo from Pexels](https://www.pexels.com/@conojeghuo)
 * [Bulma](https://bulma.io/)
 * [Bulma Navbar Toogle with React Hooks](https://dev.to/eclecticcoding/bulma-navbar-toogle-with-react-hooks-18ek)
 * [How To Setup Bulma CSS Frameowrk with React Under 5 Minutes](https://medium.com/@thexap/how-to-setup-bulma-css-framework-with-react-under-5-minutes-a3d8c2c33a87)
