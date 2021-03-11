@@ -14,21 +14,6 @@ class Search extends Component {
     message: "Search For A Book For Your Next Reading Adventure!"
   };
 
-  // componentDidMount() {
-  //   this.getSavedBooks();
-  // }
-
-  // // Loads all books and sets them to books
-  // getSavedBooks = () => {
-  //   API.getBooks()
-  //     .then(res => {
-  //       this.setState({
-  //         savedBooks: res.data
-  //       })
-  //     })
-  //     .catch(err => console.log(err));
-  // };
-
   findBooks = () => {
     API.googleSearch(this.state.search)
       .then(res => {
@@ -38,7 +23,7 @@ class Search extends Component {
               const book = item.volumeInfo;
               return {
                 title: book.title,
-                authors: book.authors,
+                authors: book.authors || "N/A",
                 description: book.description || "",
                 image: (book.imageLinks) ? book.imageLinks.thumbnail : "https://dummyimage.com/150x200/5c666e/ced0f2&text=No+Image" ,
                 link: book.infoLink,
