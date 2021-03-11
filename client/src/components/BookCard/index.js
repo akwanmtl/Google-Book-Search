@@ -23,15 +23,15 @@ function BookCard({book, button, handleClick}) {
               <img src={book.image} alt={book.title}/>
               <br/>
               <a className="button is-primary button-test" href={book.link} target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faEye} />
+                <FontAwesomeIcon icon={faEye} className="icon"/>
                 View
               </a>
               <button 
                 className="button is-link button-test" 
                 onClick={() => handleClick(book.googleID)}>
                   {button == "Save" ? 
-                    <FontAwesomeIcon icon={faStar} />:
-                    <FontAwesomeIcon icon={faTrash} /> 
+                    <FontAwesomeIcon icon={faStar} className="icon"/>:
+                    <FontAwesomeIcon icon={faTrash} className="icon"/> 
                   }
                   {button}
               </button>
