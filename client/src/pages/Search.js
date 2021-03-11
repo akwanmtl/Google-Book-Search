@@ -8,26 +8,25 @@ class Search extends Component {
   
   state = {
     searchedBooks: [],
-    savedBooks: [],
     search: "",
     loading: false,
     message: "Search For A Book For Your Next Reading Adventure!"
   };
 
-  componentDidMount() {
-    this.getSavedBooks();
-  }
+  // componentDidMount() {
+  //   this.getSavedBooks();
+  // }
 
-  // Loads all books and sets them to books
-  getSavedBooks = () => {
-    API.getBooks()
-      .then(res => {
-        this.setState({
-          savedBooks: res.data
-        })
-      })
-      .catch(err => console.log(err));
-  };
+  // // Loads all books and sets them to books
+  // getSavedBooks = () => {
+  //   API.getBooks()
+  //     .then(res => {
+  //       this.setState({
+  //         savedBooks: res.data
+  //       })
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
   findBooks = () => {
     API.googleSearch(this.state.search)
@@ -56,6 +55,8 @@ class Search extends Component {
   };
 
   handleClick = (id) => {
+    
+    console.log("adding")
     const book = this.state.searchedBooks.filter(book => book.googleID === id);
     API.saveBook(book[0])
       .then(res =>{
@@ -77,7 +78,6 @@ class Search extends Component {
     
     if(this.state.search.trim()!== "") {
       this.setState({loading:true, searchedBooks: []})
-      console.log("finding")
       this.findBooks();
     }
     
@@ -89,7 +89,7 @@ class Search extends Component {
         <SearchForm handleChange={this.handleChange} value={this.state.search} handleSubmit={this.handleSubmit}/>  
         { this.state.searchedBooks.length === 0 ?
           <Message loading={this.state.loading} message={this.state.message}/> :
-          <BookList bookList={this.state.searchedBooks} handleClick={this.handleClick}/>
+          <BookList bookList={this.state.searchedBooks} button="Save" handleClick={this.handleClick}/>
         }
       </div>
     )

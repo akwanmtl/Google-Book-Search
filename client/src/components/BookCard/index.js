@@ -1,8 +1,8 @@
 import React from "react";
 import './bookcard.css'
 
-function BookCard({book, handleclick}) {
-  console.log(book.link)
+function BookCard({book, button, handleClick}) {
+  console.log(handleClick)
   return (
     <div className="container is-max-desktop book-card">
 
@@ -14,7 +14,7 @@ function BookCard({book, handleclick}) {
           <p>{book.description}</p>
           <div className="flex-right">
             <a className="button is-primary button-test" href={book.link} target="_blank" rel="noopener noreferrer">View</a>
-            <button className="button is-link button-test" onClick={() => handleclick(book.googleID)}>Save</button>
+            <button className="button is-link button-test" onClick={() => handleClick(book.googleID)}>{button}</button>
           </div>
         </div>        
       </div>
