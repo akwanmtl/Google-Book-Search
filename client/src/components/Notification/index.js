@@ -10,13 +10,12 @@ class Notification extends Component {
 
   componentDidMount () {
     socket.on('new-book', (data) => {
-      console.log(data)
-      this.setState({ title: data.title + " has been saved!", timer: false })
+      this.setState({ title: data, timer: false })
     });
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if( this.state.timer != nextState.timer ) {
+    if( this.state.timer !== nextState.timer ) {
       if( this.textTimer ) clearTimeout(this.textTimer)
       this.textTimer = setTimeout(() => {
         this.setState({
