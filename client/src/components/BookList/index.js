@@ -1,13 +1,13 @@
 import React from "react";
 import BookCard from '../BookCard'
 
-function BookList({bookList}) {
+function BookList({bookList, handleclick}) {
 
   return (
     <div>
       { ( bookList.length!==0 ) ?
-        bookList.map((book,index) => (
-          <BookCard book={book} key={index}/>
+        bookList.map((book) => (
+          <BookCard book={book} key={book.googleID} handleclick={handleclick}/>
         )) :
         <div>No books found</div>
       }

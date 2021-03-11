@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchForm from '../components/SearchForm';
 import BookList from '../components/BookList';
+import Message from '../components/Message';
 import API from '../utils/API'
 
 class Search extends Component {
@@ -9,7 +10,8 @@ class Search extends Component {
     searchedBooks: [],
     savedBooks: [],
     search: "",
-    error: false
+    loading: false,
+    message: "Search For A Book For Your Next Reading Adventure!"
   };
 
   componentDidMount() {
@@ -20,7 +22,6 @@ class Search extends Component {
   getSavedBooks = () => {
     API.getBooks()
       .then(res => {
-        console.log(res.data);
         this.setState({
           savedBooks: res.data
         })
@@ -35,34 +36,47 @@ class Search extends Component {
           this.setState({
             searchedBooks: res.data.items.map(item => {
               const book = item.volumeInfo;
-              console.log(book)
               return {
                 title: book.title,
                 authors: book.authors,
                 description: book.description || "",
                 image: (book.imageLinks) ? book.imageLinks.thumbnail : "https://dummyimage.com/150x200/5c666e/ced0f2&text=No+Image" ,
+                link: book.infoLink,
+                googleID: item.id
               }
             })
           })
         }
         else{
-          this.setState({error:true})
+          this.setState({message:"No Book Found"})
         }
+        this.setState({loading:false})
       })
       .catch(err => console.log(err));
   };
 
+  handleClick = (id) => {
+    const book = this.state.searchedBooks.filter(book => book.googleID === id);
+    API.saveBook(book[0])
+      .then(res =>{
+        console.log(res.data)
+        this.setState({
+          searchedBooks : this.state.searchedBooks.filter(book => book.googleID !== id)
+        });
+      })
+      .catch(err => console.log(err));
+  }
+
   handleChange = (event) => {
     const {name, value} = event.target;
-    console.log(value)
     this.setState({[name]:value})
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
     
-    console.log(this.state.search.trim())
     if(this.state.search.trim()!== "") {
+      this.setState({loading:true, searchedBooks: []})
       console.log("finding")
       this.findBooks();
     }
@@ -73,7 +87,10 @@ class Search extends Component {
     return (
       <div className="container is-max-desktop">
         <SearchForm handleChange={this.handleChange} value={this.state.search} handleSubmit={this.handleSubmit}/>  
-        <BookList bookList={this.state.searchedBooks}/>
+        { this.state.searchedBooks.length === 0 ?
+          <Message loading={this.state.loading} message={this.state.message}/> :
+          <BookList bookList={this.state.searchedBooks} handleClick={this.handleClick}/>
+        }
       </div>
     )
   }

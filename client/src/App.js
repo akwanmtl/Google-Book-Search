@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import './App.sass';
+
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Jumbotron from './components/Jumbotron';
 
 import Search from './pages/Search';
 import Saved from './pages/Saved';
 import NoMatch from './pages/NoMatch';
 
+
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Navbar />
-          <Jumbotron />
-          <Switch>
-            <Route exact path="/" component={ Search } />
-            <Route exact path="/saved" component={ Saved } />
-            <Route component={ NoMatch } />           
-          </Switch>
+            <Navbar />
+            <Jumbotron />
+            <Switch>
+              <Route exact path="/" component={ Search } />
+              <Route exact path="/saved" component={ Saved } />
+              <Route component={ NoMatch } />           
+            </Switch>
         </div>
       </Router>
     );
