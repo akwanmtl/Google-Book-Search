@@ -1,0 +1,29 @@
+.book-card {
+  background-color: #D3D0CB;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #E7E5DF;
+
+}
+
+.book-cover img {
+  width: 150px;
+  height: 200px;
+  outline: 5px solid #44BBA4;
+
+}
+
+.has-text-justified {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+.button-test {
+  width: 160px;
+  margin-top: 5px;
+}
+
+.book-body {
+  margin : 10px
+}
