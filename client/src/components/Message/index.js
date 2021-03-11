@@ -1,10 +1,11 @@
 import React from 'react';
+import './message.css'
 
 function Message ({message, loading}) {
   return (
-    <div className="container is-max-desktop">
+    <div className="message-banner">
       { loading ? 
-        <div>Loading</div> :
+        <progress class="progress is-large is-link" max="100">100%</progress> :
         <div>{message}</div>
       }
     </div>

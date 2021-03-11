@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import API from '../utils/API';
 import BookList from '../components/BookList'
+import Message from '../components/Message'
+import BookContainer from '../components/BookContainer';
 
 class Saved extends Component {
   
   state = {
-    savedBooks: []
+    savedBooks: [],
+    loading:true
   };
 
   componentDidMount() {
     this.getSavedBooks();
+    
   }
 
   // Loads all books and sets them to books
@@ -17,10 +21,12 @@ class Saved extends Component {
     API.getBooks()
       .then(res => {
         this.setState({
-          savedBooks: res.data
+          savedBooks: res.data,
+          loading: false
         })
       })
       .catch(err => console.log(err));
+    
   };
 
 
@@ -40,7 +46,13 @@ class Saved extends Component {
   render() {
     return (
       <div className="container is-max-desktop">
-        <BookList bookList={this.state.savedBooks} button="Remove" handleClick={this.handleClick}/>
+        <BookContainer>
+          { this.state.savedBooks.length === 0 ? 
+            <Message message="No Saved Books" loading={this.state.loading}/> :
+            <BookList bookList={this.state.savedBooks} button="Remove" handleClick={this.handleClick}/>
+          }
+        </BookContainer>
+        
       </div>
     )
   }

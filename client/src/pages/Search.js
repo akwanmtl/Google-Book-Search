@@ -3,6 +3,7 @@ import SearchForm from '../components/SearchForm';
 import BookList from '../components/BookList';
 import Message from '../components/Message';
 import API from '../utils/API'
+import BookContainer from '../components/BookContainer';
 
 class Search extends Component {
   
@@ -87,10 +88,12 @@ class Search extends Component {
     return (
       <div className="container is-max-desktop">
         <SearchForm handleChange={this.handleChange} value={this.state.search} handleSubmit={this.handleSubmit}/>  
-        { this.state.searchedBooks.length === 0 ?
-          <Message loading={this.state.loading} message={this.state.message}/> :
-          <BookList bookList={this.state.searchedBooks} button="Save" handleClick={this.handleClick}/>
-        }
+        <BookContainer>
+          { this.state.searchedBooks.length === 0 ?
+            <Message loading={this.state.loading} message={this.state.message}/> :
+            <BookList bookList={this.state.searchedBooks} button="Save" handleClick={this.handleClick}/>
+          }
+        </BookContainer>
       </div>
     )
   }
