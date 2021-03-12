@@ -15,6 +15,17 @@ This is an application that allows users to search and save books. It is built u
 
 ## Usage 
 
+Here is the demo of the application.
+
+![Google Book Search walkthrough](demo.gif)
+
+On the homepage, the user can search for a book. The Google Books API will provide a list of books that is shown to the user who can then choose to view the details in Google Books or can save it in their saved list. In the saved page, all the books that have been saved will be shown and the user can choose to remove the book from the list as well as view it on Google. 
+
+There is the addition on use Socket.io to show notifications when a book has been added or removed from the saved list. The notifcation will appear for a short duration to all open pages of the website application. 
+
+Here is the demo showing the notifications appearing on two browser pages at the same time.
+
+![Socket walkthrough](demo-socket.gif)
 
 ## Credits
 
