@@ -36,7 +36,10 @@ module.exports = {
   remove: function(req, res) {
     db.Book
       .findOne({ googleID: req.params.id })
-      .then(dbModel => dbModel.remove())
+      .then(dbModel => {
+        req.io.emit("new-book", dbModel.title + " has been removed!");
+        dbModel.remove()
+      })
       .then(result => res.json(result))
       .catch(err => res.status(422).json(err));
   }
