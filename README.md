@@ -1,7 +1,7 @@
 # Google-Book-Search
 
 ## Description
-This is an application that allows users to search and save books. It is built using the Google Books API, MERN stack (MongoDB, Express, React and Node), Bulma framework and Socket.io. 
+This is an application that allows users to search and save books. It is built using the Google Books API, MERN stack (MongoDB, Express, React and Node), Bulma framework and Socket.io. It is deployed on Heroku and uses MongoDB Atlas.
 
 * Link to the app on Heroku: https://google-search-book-api-react.herokuapp.com/
 * Link to the Github repository: https://github.com/akwanmtl/Google-Book-Search
@@ -19,7 +19,7 @@ Here is the demo of the application.
 
 ![Google Book Search walkthrough](demo.gif)
 
-On the homepage, the user can search for a book. The Google Books API will provide a list of books that is shown to the user who can then choose to view the details in Google Books or can save it in their saved list. In the saved page, all the books that have been saved will be shown and the user can choose to remove the book from the list as well as view it on Google. 
+On the homepage, the user can search for a book. The Google Books API will provide a list of books that is shown to the user who can then choose to view the details in Google Books or can save it in their saved list. In the saved page, all the books that have been saved will be shown and the user can choose to remove the book from the list as well as view it on Google. When the application is either retrieving data from the Google Books API or from MongoDB Atlas database, there is a progress bar that will appear.
 
 There is the addition on use Socket.io to show notifications when a book has been added or removed from the saved list. The notifcation will appear for a short duration to all open pages of the website application. 
 
